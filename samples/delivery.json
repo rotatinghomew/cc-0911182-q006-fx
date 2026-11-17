@@ -1,0 +1,59 @@
+{
+  "batch_id": "sample-delivery",
+  "tables": {
+    "currencies": [
+      {
+        "code": "JPY",
+        "minor_digits": 0
+      },
+      {
+        "code": "KWD",
+        "minor_digits": 3
+      },
+      {
+        "code": "USD",
+        "minor_digits": 2
+      }
+    ],
+    "revenue": [
+      {
+        "entry_id": "j1",
+        "original_id": "",
+        "business_day": "2026-10-31",
+        "received_at": "2026-11-01T10:00:00Z",
+        "currency": "JPY",
+        "amount": "1001",
+        "kind": "sale",
+        "partner": "media-a"
+      },
+      {
+        "entry_id": "k1",
+        "original_id": "",
+        "business_day": "2026-11-01",
+        "received_at": "2026-11-01T10:00:00Z",
+        "currency": "KWD",
+        "amount": "2.345",
+        "kind": "sale",
+        "partner": "media-b"
+      }
+    ],
+    "rates": [
+      {
+        "rate_id": "r1",
+        "rate_day": "2026-10-31",
+        "currency": "JPY",
+        "base_currency": "USD",
+        "rate": "0.0067",
+        "published_at": "2026-11-01T00:00:00Z"
+      },
+      {
+        "rate_id": "r2",
+        "rate_day": "2026-11-01",
+        "currency": "KWD",
+        "base_currency": "USD",
+        "rate": "3.25",
+        "published_at": "2026-11-01T00:00:00Z"
+      }
+    ]
+  }
+}

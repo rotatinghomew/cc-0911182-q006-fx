@@ -1,0 +1,1 @@
+TABLES = {'currencies': (['code', 'minor_digits'], ['code']), 'revenue': (['entry_id', 'original_id', 'business_day', 'received_at', 'currency', 'amount', 'kind', 'partner'], ['entry_id']), 'rates': (['rate_id', 'rate_day', 'currency', 'base_currency', 'rate', 'published_at'], ['rate_id'])}
