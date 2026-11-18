@@ -1,0 +1,54 @@
+{
+  "batch_id": "sample-november-update",
+  "tables": {
+    "currencies": [],
+    "revenue": [
+      {
+        "entry_id": "j2",
+        "original_id": "j1",
+        "business_day": "2026-11-03",
+        "received_at": "2026-11-04T09:00:00Z",
+        "currency": "JPY",
+        "amount": "-120",
+        "kind": "refund",
+        "partner": "media-a"
+      },
+      {
+        "entry_id": "k2",
+        "original_id": "k1",
+        "business_day": "2026-11-05",
+        "received_at": "2026-11-06T09:00:00Z",
+        "currency": "KWD",
+        "amount": "0.100",
+        "kind": "correction",
+        "partner": "media-b"
+      }
+    ],
+    "rates": [
+      {
+        "rate_id": "r1-late",
+        "rate_day": "2026-10-31",
+        "currency": "JPY",
+        "base_currency": "USD",
+        "rate": "0.0068",
+        "published_at": "2026-11-10T00:00:00Z"
+      },
+      {
+        "rate_id": "r3",
+        "rate_day": "2026-11-30",
+        "currency": "JPY",
+        "base_currency": "USD",
+        "rate": "0.0069",
+        "published_at": "2026-11-28T00:00:00Z"
+      },
+      {
+        "rate_id": "r4",
+        "rate_day": "2026-11-30",
+        "currency": "KWD",
+        "base_currency": "USD",
+        "rate": "3.26",
+        "published_at": "2026-11-28T00:00:00Z"
+      }
+    ]
+  }
+}

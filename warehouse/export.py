@@ -7,7 +7,7 @@ import tempfile
 from pathlib import Path
 
 from .storage import canonical
-from .tables import TABLES
+from .tables import CLOSING_TABLES, TABLES
 
 
 def export_tables(connection, destination, revision):
@@ -22,7 +22,10 @@ def export_tables(connection, destination, revision):
     connection.execute('BEGIN TRANSACTION')
     try:
         manifest = {'revision': revision, 'tables': {}}
-        for table, (columns, keys) in TABLES.items():
+        # 业务表与关账/重述事实一并冻结，版本头排在明细之前
+        ordered = dict(TABLES)
+        ordered.update(CLOSING_TABLES)
+        for table, (columns, keys) in ordered.items():
             filename = table + '.parquet'
             output = stage / filename
             escaped = str(output).replace("'", "''")
@@ -48,7 +51,9 @@ def export_tables(connection, destination, revision):
 
 
 def read_export(connection, destination, revision, table):
-    if table not in TABLES or not re.fullmatch(r'[A-Za-z0-9_-]{1,64}', revision):
+    known = dict(TABLES)
+    known.update(CLOSING_TABLES)
+    if table not in known or not re.fullmatch(r'[A-Za-z0-9_-]{1,64}', revision):
         raise ValueError('导出查询标识非法')
     root = Path(destination) / revision
     manifest = json.loads((root / 'manifest.json').read_text())
